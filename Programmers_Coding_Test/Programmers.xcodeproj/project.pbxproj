@@ -12,6 +12,7 @@
 		990B62EA26BCFC180053F16F /* 기능개발.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990B62E926BCFC180053F16F /* 기능개발.swift */; };
 		9912C69D26BD02FA00EF0416 /* 프린터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C69C26BD02FA00EF0416 /* 프린터.swift */; };
 		9912C69F26BD19E300EF0416 /* 다리를지나는트럭.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C69E26BD19E300EF0416 /* 다리를지나는트럭.swift */; };
+		9912C6A126BD335F00EF0416 /* 주식가격.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C6A026BD335F00EF0416 /* 주식가격.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		990B62E926BCFC180053F16F /* 기능개발.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "기능개발.swift"; sourceTree = "<group>"; };
 		9912C69C26BD02FA00EF0416 /* 프린터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "프린터.swift"; sourceTree = "<group>"; };
 		9912C69E26BD19E300EF0416 /* 다리를지나는트럭.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다리를지나는트럭.swift"; sourceTree = "<group>"; };
+		9912C6A026BD335F00EF0416 /* 주식가격.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "주식가격.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				990B62E926BCFC180053F16F /* 기능개발.swift */,
 				9912C69C26BD02FA00EF0416 /* 프린터.swift */,
 				9912C69E26BD19E300EF0416 /* 다리를지나는트럭.swift */,
+				9912C6A026BD335F00EF0416 /* 주식가격.swift */,
 			);
 			path = "Stack-Queue";
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9912C69F26BD19E300EF0416 /* 다리를지나는트럭.swift in Sources */,
+				9912C6A126BD335F00EF0416 /* 주식가격.swift in Sources */,
 				990B62E626BCFB980053F16F /* 부족한_금액_계산하기.swift in Sources */,
 				990B62DE26BCFB750053F16F /* main.swift in Sources */,
 				9912C69D26BD02FA00EF0416 /* 프린터.swift in Sources */,

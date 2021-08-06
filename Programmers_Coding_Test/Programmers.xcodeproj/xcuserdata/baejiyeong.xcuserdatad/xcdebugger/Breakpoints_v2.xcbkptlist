@@ -3,22 +3,4 @@
    uuid = "D53C9C4B-7D0B-4B5D-AA9E-901491EC7E44"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "87C668B2-6070-46B1-8D75-4F04E39C296C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Programmers/Practice/Stack-Queue/&#x1103;&#x1161;&#x1105;&#x1175;&#x1105;&#x1173;&#x11af;&#x110c;&#x1175;&#x1102;&#x1161;&#x1102;&#x1173;&#x11ab;&#x1110;&#x1173;&#x1105;&#x1165;&#x11a8;.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "cross(trucks:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>
