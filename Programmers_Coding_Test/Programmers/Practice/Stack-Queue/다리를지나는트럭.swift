@@ -89,7 +89,6 @@ class Bridge {
     }
     
     private var crossing: [Truck] = []
-    private var isOpen: Bool = false
     
     init(length: Int, maxWeight: Int) {
         self.maxCount = length
