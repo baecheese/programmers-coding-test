@@ -32,7 +32,25 @@ import Foundation
  좋아요 수가 동일할 경우 코드를 가장 먼저 제출한 분께 상품을 드립니다.
  */
 
+// 채점 결과
+// 정확성: 91.3
+// 합계: 91.3 / 100.0
+// 테스트 2. 13 : 실패 (시간 초과)
 func weekly_amusementPark_needPrice(_ price: Int, _ money: Int, _ count: Int) -> Int64 {
-    let possibleMaxAmount = (1...count).reduce(0) { $0 + (price * $1) }
-    return possibleMaxAmount <= money ? 0 : Int64(possibleMaxAmount - money)
+    let possibleMaxAmount: Int64 = (1...count).reduce(0) { $0 + (Int64(price) * Int64($1)) }
+    return possibleMaxAmount <= money ? 0 : possibleMaxAmount - Int64(money)
+}
+
+// 등차수열 적용
+//  (price * 1) + (price * 2) + ... + (price * n)
+//  price * (1+2+..+n)
+//  price * n((1+n)) / 2
+func weekly_amusementPark_needPrice_3(_ price: Int, _ money: Int, _ count: Int) -> Int64 {
+    let count: Int64 = Int64(count)
+    let possibleMaxAmount: Int64 = Int64(price) * sum_arithmetic_progression(first: 1, last: count, length: count)
+    return possibleMaxAmount <= money ? 0 : possibleMaxAmount - Int64(money)
+}
+
+fileprivate func sum_arithmetic_progression(first: Int64, last: Int64, length: Int64) -> Int64 {
+    return ((first + last) * length) / 2
 }

@@ -38,6 +38,54 @@
  */
 
 func stack_queue_printer(_ priorities:[Int], _ location:Int) -> Int {
+    let printer: PrioritiesPrinter = PrioritiesPrinter(priorities)
+    return printer.getSequence(location)
+}
+
+class PrioritiesPrinter {
     
-    return 0
+    let originPriorities: [Int]
+    var target: Int?
+    
+    init(_ priorities: [Int]) {
+        self.originPriorities = priorities
+    }
+    
+    func getSequence(_ targetIndex: Int) -> Int {
+        guard 1 < originPriorities.count else {
+            //한 개만 있으면 첫 번째
+            return 1
+        }
+        var logStack: [(priority: Int, target: Bool)] = tagging(originPriorities, index: targetIndex)
+        var count: Int = 0
+        while false == logStack.isEmpty {
+            let first = logStack.removeFirst()
+            if false == isMax(logStack, value: first.priority) {
+                logStack.append(first)
+            } else {
+                count += 1
+                if first.target {
+                    return count
+                }
+            }
+        }
+        return count
+    }
+    
+    private func tagging(_ priorities: [Int], index target: Int) -> [(priority: Int, target: Bool)] {
+        var tagLog: [(priority: Int, target: Bool)] = []
+        for index in 0...(priorities.count - 1) {
+            tagLog.append((priority: priorities[index], target: index == target))
+        }
+        return tagLog
+    }
+    
+    private func isMax(_ tasks: [(priority: Int, target: Bool)], value: Int) -> Bool {
+        for (priority, _) in tasks {
+            if value < priority {
+                return false
+            }
+        }
+        return true
+    }
 }
