@@ -13,6 +13,7 @@
 		9912C69D26BD02FA00EF0416 /* 프린터.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C69C26BD02FA00EF0416 /* 프린터.swift */; };
 		9912C69F26BD19E300EF0416 /* 다리를지나는트럭.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C69E26BD19E300EF0416 /* 다리를지나는트럭.swift */; };
 		9912C6A126BD335F00EF0416 /* 주식가격.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C6A026BD335F00EF0416 /* 주식가격.swift */; };
+		9912C6A426BD3B6700EF0416 /* 완주하지못한선수.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912C6A326BD3B6700EF0416 /* 완주하지못한선수.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		9912C69C26BD02FA00EF0416 /* 프린터.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "프린터.swift"; sourceTree = "<group>"; };
 		9912C69E26BD19E300EF0416 /* 다리를지나는트럭.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "다리를지나는트럭.swift"; sourceTree = "<group>"; };
 		9912C6A026BD335F00EF0416 /* 주식가격.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "주식가격.swift"; sourceTree = "<group>"; };
+		9912C6A326BD3B6700EF0416 /* 완주하지못한선수.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "완주하지못한선수.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		990B62E726BCFBAF0053F16F /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				9912C6A226BD3B5B00EF0416 /* Hask */,
 				990B62E826BCFBE40053F16F /* Stack-Queue */,
 			);
 			path = Practice;
@@ -99,6 +102,14 @@
 				9912C6A026BD335F00EF0416 /* 주식가격.swift */,
 			);
 			path = "Stack-Queue";
+			sourceTree = "<group>";
+		};
+		9912C6A226BD3B5B00EF0416 /* Hask */ = {
+			isa = PBXGroup;
+			children = (
+				9912C6A326BD3B6700EF0416 /* 완주하지못한선수.swift */,
+			);
+			path = Hask;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				9912C69F26BD19E300EF0416 /* 다리를지나는트럭.swift in Sources */,
 				9912C6A126BD335F00EF0416 /* 주식가격.swift in Sources */,
+				9912C6A426BD3B6700EF0416 /* 완주하지못한선수.swift in Sources */,
 				990B62E626BCFB980053F16F /* 부족한_금액_계산하기.swift in Sources */,
 				990B62DE26BCFB750053F16F /* main.swift in Sources */,
 				9912C69D26BD02FA00EF0416 /* 프린터.swift in Sources */,
