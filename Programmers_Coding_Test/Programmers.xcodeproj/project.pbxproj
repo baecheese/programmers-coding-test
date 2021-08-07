@@ -87,7 +87,7 @@
 		990B62E726BCFBAF0053F16F /* Practice */ = {
 			isa = PBXGroup;
 			children = (
-				9912C6A226BD3B5B00EF0416 /* Hask */,
+				9912C6A226BD3B5B00EF0416 /* Hash */,
 				990B62E826BCFBE40053F16F /* Stack-Queue */,
 			);
 			path = Practice;
@@ -104,12 +104,12 @@
 			path = "Stack-Queue";
 			sourceTree = "<group>";
 		};
-		9912C6A226BD3B5B00EF0416 /* Hask */ = {
+		9912C6A226BD3B5B00EF0416 /* Hash */ = {
 			isa = PBXGroup;
 			children = (
 				9912C6A326BD3B6700EF0416 /* 완주하지못한선수.swift */,
 			);
-			path = Hask;
+			path = Hash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
