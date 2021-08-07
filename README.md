@@ -10,7 +10,7 @@
 
 ### 해시
 
-* [완주하지 못한 선수](./programmers-coding-test/Programmers_Coding_Test/Programmers/Practice/Hash/완주하지못한선수.swift)
+* [완주하지 못한 선수](Programmers_Coding_Test/Programmers/Practice/Hash/완주하지못한선수.swift)
 
 ### 스택/큐
 
