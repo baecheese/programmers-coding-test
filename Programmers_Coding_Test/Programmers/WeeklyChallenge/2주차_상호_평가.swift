@@ -85,89 +85,22 @@ import Foundation
  */
 
 func mutualEvaluation(_ scores:[[Int]]) -> String {
-    let professor = Professor()
     let students = zip(0...scores.count-1, scores)
         .map { return Student(index: $0, $1) }
-    return professor.reportCard(students)
+    let professor = Professor(students)
+    return professor.reports.reduce("") { $0 + $1.rate }
 }
 
-class Professor {
+class ReportCard {
     
-    
-    
-    func reportCard(_ students: [Student]) -> String {
-        return students
-            .map { return self.report($0) }
-            .reduce("") { $0 + $1 }
-    }
-    
-    // 자기 자신을 "유일한" 최고 or 최저 점수를 주면 그 점수 제외
-    private func isExclusions(_ student: Student) -> Bool {
-        guard student.isMax || student.isMin else { return false }
-        let evaluationCard = student.evaluationCard[student.isMin ? student.minScore : student.maxScore] ?? []
-        return evaluationCard.contains(student.id)
-    }
-    
-    func score(_ student: Student) -> Int {
-        var count = student.scores.count
-        var sum = student.sum
-        if isExclusions(student) {
-            count -= 1
-            sum -= student.selfScore
-        }
-        return sum / count
-    }
-    
-    func report(_ student: Student) -> String {
-        let score = self.score(student)
-        if 90 <= score {
-            return "A"
-        } else if 80 <= score {
-            return "B"
-        } else if 70 <= score {
-            return "C"
-        } else if 50 <= score {
-            return "D"
-        } else {
-            return "F"
-        }
-    }
-    
-}
-
-class Student {
-    let id: Int
+    let student: Student
     let scores: [Int]
-    
-    var sum: Int {
-        return scores.reduce(0) { $0 + $1 }
-    }
-    
-    var isMax: Bool {
-        return selfScore == maxScore
-    }
-    
-    var isMin: Bool {
-        return selfScore == minScore
-    }
-    
-    var selfScore: Int {
-        return scores[id]
-    }
-    
-    var maxScore: Int {
-        return scores.max()!
-    }
-    
-    var minScore: Int {
-        return scores.min()!
-    }
     
     /*
      key : score
      value : student index array
      */
-    var evaluationCard: [Int: [Int]] {
+    var scoreLogs: [Int: [Int]] {
         var result: [Int: [Int]] = [:]
         guard false == scores.isEmpty else { return result }
         for index in 0...scores.count-1 {
@@ -180,10 +113,87 @@ class Student {
         }
         return result
     }
+
+    
+    var max: Int {
+        return scores.max() ?? 0
+    }
+    
+    var min: Int {
+        return scores.min() ?? 0
+    }
+    
+    // 자기 자신을 "유일한" 최고 or 최저 점수를 주면 그 점수 제외
+    var isExclusions: Bool {
+        guard min == student.selfScore || max == student.selfScore else { return false }
+        return 1 == (scoreLogs[student.selfScore] ?? []).count
+    }
+    
+    var average: Double {
+        var sum = scores.reduce(0) { $0 + $1 }
+        var count = scores.count
+        if isExclusions {
+            sum -= student.selfScore
+            count -= 1
+        }
+        return Double(sum) / Double(count)
+    }
+    
+    var rate: String {
+        if 90.0 <= average {
+            return "A"
+        } else if 80.0 <= average {
+            return "B"
+        } else if 70.0 <= average {
+            return "C"
+        } else if 50.0 <= average {
+            return "D"
+        } else {
+            return "F"
+        }
+    }
+    
+    init(_ student: Student, scores: [Int]) {
+        self.student = student
+        self.scores = scores
+    }
+    
+}
+
+class Professor {
+    
+    let students: [Student]
+    let reports: [ReportCard]
+    
+    init(_ students: [Student]) {
+        self.students = students
+        self.reports = students.map { (student) in
+            return ReportCard(
+                student,
+                scores: students.map { valuer in
+                    return valuer.scores[student.id]
+                }
+            )
+        }
+    }
+    
+}
+
+class Student {
+    
+    let id: Int
+    let scores: [Int]
+    
+    var selfScore: Int {
+        return scores[id]
+    }
     
     init(index: Int, _ scores: [Int]) {
         self.id = index
         self.scores = scores
     }
     
+    func isEqual(index: Int) -> Bool {
+        return id == index
+    }
 }
