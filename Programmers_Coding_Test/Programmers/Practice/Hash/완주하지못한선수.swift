@@ -35,3 +35,46 @@ import Foundation
  "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
  */
 
+func non_finishPlayer(participant: [String], completion: [String]) -> String {
+    var participantList: [String: Int] = [:]
+    for player in participant {
+        let sameName = participantList[player] ?? 0
+        participantList[player] = (sameName + 1)
+    }
+    for player in completion {
+        guard let _ = participantList[player] else { continue }
+        participantList[player]! -= 1
+    }
+    return participantList.filter({ 1 == $1 }).first?.key ?? "" 
+}
+
+
+/* >> Java version
+ 
+ class Solution {
+     public String solution(String[] participant, String[] completion) {
+         if (1 == participant.length) {
+             return participant[0];
+         }
+         int[] checkParticipant = new int[participant.length];
+         for (int participantIndex = 0; participantIndex < checkParticipant.length; participantIndex++) {
+             for (int completionIndex = 0; completionIndex < completion.length; completionIndex++) {
+                 String currentCompletion = completion[completionIndex];
+                 String currentParticipant = participant[participantIndex];
+                 int hasCache = checkParticipant[participantIndex];
+                 if ((currentCompletion.equals(currentParticipant)) && (0 == hasCache)) {
+                     checkParticipant[participantIndex] = 1;
+                     break;
+                 }
+             }
+         }
+         for (int index = 0; index < checkParticipant.length; index++) {
+             if (0 == checkParticipant[index]) {
+                 return participant[index];
+             }
+         }
+         return participant[0];
+     }
+ }
+ 
+ */
